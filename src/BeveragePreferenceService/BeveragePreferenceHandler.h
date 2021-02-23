@@ -16,7 +16,7 @@ namespace vending_machine{
     class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
         // Private class variables
         std::string hotBeverages [3] = {"cappuccino", "latte", "espresso"};
-        std::string coldBeverages [3] = {"lemondate", "ice tea", "soda"};
+        std::string coldBeverages [3] = {"lemonade", "ice tea", "soda"};
 
         public:
         BeveragePreferenceServiceHandler();

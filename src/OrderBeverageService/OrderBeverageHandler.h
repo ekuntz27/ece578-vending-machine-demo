@@ -90,7 +90,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
    const BeverageType::type constBeverageType = beverageType;
    std::string beverageName = "DEFAULT";
     try{
-      beverage_pref_client->GetBeverage(beverageName, BeverageType::type::COLD);
+      beverage_pref_client->GetBeverage(beverageName, constBeverageType);
     }catch(...){
       _beverage_pref_client_pool->Push(beverage_pref_client_wrapper);
        LOG(error) << "Failed to send call GetBeverage to beverage-preference-client";
