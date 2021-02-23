@@ -15,14 +15,14 @@
 namespace vending_machine{
     class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
         // Private class variables
-        string hotBeverages [3] = {"cappuccino", "latte", "espresso"};
-        string coldBeverages [3] = {"lemondate", "ice tea", "soda"};
+        std::string hotBeverages [3] = {"cappuccino", "latte", "espresso"};
+        std::string coldBeverages [3] = {"lemondate", "ice tea", "soda"};
 
         public:
         BeveragePreferenceServiceHandler();
         ~BeveragePreferenceServiceHandler() override=default;
 
-        string GetBeverage(BeverageType::type btype) override;
+        std::string GetBeverage(BeverageType::type btype) override;
     };
 
     // Constructor
@@ -30,7 +30,7 @@ namespace vending_machine{
 
     }
 
-    string BeveragePreferenceServiceHandler::GetBeverage(BeverageType::type btype){
+    std::string BeveragePreferenceServiceHandler::GetBeverage(BeverageType::type btype){
         printf("GetBeverage\n");
         if(btype == BeverageType::type::HOT){
             return hotBeverages[rand()%3];
