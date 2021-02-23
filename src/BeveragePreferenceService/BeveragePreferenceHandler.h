@@ -37,8 +37,6 @@ namespace vending_machine{
         }else{
             return coldBeverages[rand()%3];
         }
-
-
     }
    
 
