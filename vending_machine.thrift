@@ -54,3 +54,7 @@ service WeatherService{
 		1: i64 city
 	)
 }
+
+service BeveragePreferenceService{
+	string GetBeverage(1: BeverageType btype)
+}
