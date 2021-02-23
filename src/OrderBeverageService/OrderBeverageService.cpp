@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
   int beverage_pref_service_port = config_json["beverage-preference-service"]["port"];
   std::string beverage_pref_service_addr = config_json["beverage-preference-service"]["addr"];
 
-  // 7: get the client of weather-service
+  // 7: get the client of beverage-preference-service
   ClientPool<ThriftClient<BeveragePreferenceServiceClient>> beverage_pref_client_pool(
       "beverage-preference-service", beverage_pref_service_addr, beverage_pref_service_port, 0, 128, 1000);
 

@@ -22,7 +22,7 @@ namespace vending_machine{
         BeveragePreferenceServiceHandler();
         ~BeveragePreferenceServiceHandler() override=default;
 
-        std::string GetBeverage(BeverageType::type btype) override;
+        std::string GetBeverage(const BeverageType::type btype) override;
     };
 
     // Constructor
@@ -30,7 +30,7 @@ namespace vending_machine{
 
     }
 
-    std::string BeveragePreferenceServiceHandler::GetBeverage(BeverageType::type btype){
+    std::string BeveragePreferenceServiceHandler::GetBeverage(const BeverageType::type btype){
         printf("GetBeverage\n");
         if(btype == BeverageType::type::HOT){
             return hotBeverages[rand()%3];
