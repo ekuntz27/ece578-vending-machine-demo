@@ -57,8 +57,8 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
     WeatherType::type weatherType = WeatherType::type::COLD;
 
     // 2. get the beverage preference service client pool
-    auto beverage_pref_wrapper = _beverage_pref_client_pool->Pop();
-    if (!beverage_pref_wrapper){
+    auto beverage_pref_client_wrapper = _beverage_pref_client_pool->Pop();
+    if (!beverage_pref_client_wrapper){
       ServiceException se;
         se.errorCode = ErrorCode::SE_THRIFT_CONN_ERROR;
         se.message = "Failed to connect to beverage-preference-service";
@@ -89,13 +89,13 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
    // 5. get beverage name from beverage-preference-service
    std::string beverageName = "DEFAULT";
     try{
-      beverageName = beverage_pref_client_pool->GetBeverage(beverageType);
+      beverageName = beverage_pref_client->GetBeverage(beverageType);
     }catch(...){
-      _beverage_pref_client_pool->Push(beverage_pref_wrapper);
+      _beverage_pref_client_pool->Push(beverage_pref_client_wrapper);
        LOG(error) << "Failed to send call GetBeverage to beverage-preference-client";
       throw;
     }
-    _beverage_pref_client_pool->Push(beverage_pref_wrapper);
+    _beverage_pref_client_pool->Push(beverage_pref_client_wrapper);
     _return beverageName;
 
 
