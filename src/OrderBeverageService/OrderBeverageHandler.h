@@ -64,7 +64,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
         se.message = "Failed to connect to beverage-preference-service";
         throw se;
     }
-    auto beverage_pref_client = beverage_pref_wrapper->GetClient();
+    auto beverage_pref_client = beverage_pref_client_wrapper->GetClient();
 
 
     // 3. call the remote procedure : GetWeather
@@ -96,7 +96,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
       throw;
     }
     _beverage_pref_client_pool->Push(beverage_pref_client_wrapper);
-    _return beverageName;
+    _return = beverageName;
 
 
 #endif
