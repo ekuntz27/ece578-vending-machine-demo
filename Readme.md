@@ -1,3 +1,5 @@
+NOTE: This code was taken from https://github.com/proywm/vendingmachine_tutorial and then modified for a school experiment.
+
 # Pre-requirements
 
 - Docker
